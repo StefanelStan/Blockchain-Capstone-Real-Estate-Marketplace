@@ -45,17 +45,17 @@ module.exports = {
             network_id: "*", 
             gasPrice: 10000000, 
             gasLimit: 3141592000000     // Any network (default: none)
+        },
+        rinkeby: {
+            provider: function() { 
+              const mnemonic = fs.readFileSync("./config/mnemonic.txt").toString().trim();
+              const infuraKey = fs.readFileSync("./config/infurakey.txt").toString().trim();
+              return new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`);
+            },
+            network_id: 4,
+            gas: 6900000,
+            gasPrice: 200000000000
         }
-        // rinkeby: {
-        //     provider: function() { 
-        //         const mnemonic = fs.readFileSync("./config/mnemonic.txt").toString().trim();
-        //         const infuraKey = fs.readFileSync("./config/infurakey.txt").toString().trim();
-        //         return new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`);
-        //     },
-        //     network_id: 4,
-        //     gas: 6900000,
-        //     gasPrice: 200000000000
-        // }
 
         // Another network with more advanced options...
         // advanced: {
