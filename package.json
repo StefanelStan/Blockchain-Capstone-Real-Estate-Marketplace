@@ -13,7 +13,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "lite-server": "2.4.0",
-    "truffle-assertions": "^0.8.2"
+    "truffle-assertions": "^0.8.2",
+    "web3": "^1.0.0-beta.52"
   },
   "dependencies": {
     "openzeppelin-solidity": "^2.2.0",
