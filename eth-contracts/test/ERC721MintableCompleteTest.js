@@ -91,15 +91,15 @@ contract('ERC721MintableComplete', accounts => {
         });
 
         it('should get the correct token name', async() => {
-            expect(await contractInstance.getName({from: account_two})).to.equal(name);
+            expect(await contractInstance.name({from: account_two})).to.equal(name);
         });
 
         it('should get the correct token symbol', async() => {
-            expect(await contractInstance.getSymbol({from: account_two})).to.equal(symbol);
+            expect(await contractInstance.symbol({from: account_two})).to.equal(symbol);
         });
 
         it('should get the correct token baseTokenURI', async() => {
-            expect(await contractInstance.getBaseTokenURI({from: account_two})).to.equal(baseTokenURI);
+            expect(await contractInstance.baseTokenURI({from: account_two})).to.equal(baseTokenURI);
         });
     });
 
