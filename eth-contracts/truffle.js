@@ -48,11 +48,12 @@ module.exports = {
         },
         rinkeby: {
             provider: function() { 
-              const mnemonic = fs.readFileSync("./config/mnemonic.txt").toString().trim();
-              const infuraKey = fs.readFileSync("./config/infurakey.txt").toString().trim();
-              return new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`);
+                const mnemonic = fs.readFileSync(__dirname + "/config/mnemonic.txt").toString().trim();
+                const infuraKey = fs.readFileSync(__dirname +"/config/infurakey.txt").toString().trim();
+                return new HDWalletProvider(mnemonic, `https://rinkeby.infura.io/v3/${infuraKey}`);
             },
             network_id: 4,
+            skipDryRun: true,
             gas: 6900000,
             gasPrice: 200000000000
         }
