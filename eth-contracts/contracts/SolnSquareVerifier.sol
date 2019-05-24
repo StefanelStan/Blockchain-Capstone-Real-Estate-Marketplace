@@ -59,7 +59,7 @@ contract SolnSquareVerifier is ERC721MintableComplete {
     // 8. TODO Create a function to mint new NFT only after the solution has been verified
     //      - make sure the solution is unique (has not been used before)
     //      - make sure you handle metadata as well as tokenSuplly
-    function mint(uint a, uint b, address to) public 
+    function mintNewNFT(uint a, uint b, address to) public
     {
         bytes32 solutionHash = keccak256(abi.encodePacked(a, b));
         require(solutions[solutionHash].solutionAddress != address(0), "Solution does not exist");
