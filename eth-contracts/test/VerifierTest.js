@@ -43,6 +43,22 @@ contract('Verifier', accounts => {
 
         truffleAssert.eventNotEmitted(tx, 'Verified');
     });
+
+    it('should verify false with the incorrect proof for the input and not emit event', async() => {
+        let tx = await contractInstance.verifyTx(
+            proofAsUint.proof.A,
+            proofAsUint.proof.A_p,
+            proofAsUint.proof.B,
+            proofAsUint.proof.B_p,
+            proofAsUint.proof.C,
+            proofAsUint.proof.C_p,
+            proofAsUint.proof.H,
+            proofAsUint.proof.K,
+            [16,1] //proof{A,B,C..} from inside proof.json is bound for input [9,1] and not [16,1]
+        );
+
+        truffleAssert.eventNotEmitted(tx, 'Verified');
+    });
     
 });
 
